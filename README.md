@@ -1,4 +1,4 @@
-# Promt_Engineering_for_Performance_Engineering_with_AI
+# Prompt_Engineering_for_Performance_Engineering_with_AI
 CS_406 Project
 
 for the commit https://github.com/CGAL/cgal/commit/28a9cb150ae9b11f9bb37d972be990d87b05cbcf the ais classification is : 
