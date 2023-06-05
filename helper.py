@@ -41,3 +41,5 @@ def parse_patch(patch):
             new_line_number += 1
 
     return '\n'.join(lines)
+
+
