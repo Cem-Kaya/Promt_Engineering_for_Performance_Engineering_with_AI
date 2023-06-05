@@ -1,0 +1,10 @@
+https://github.com/lattice/quda/commit/b7857af47ff2e8e8162a250a4adefba55680b1c9
+https://github.com/openmm/openmm/commit/926e7b9ac11a8614f310b59a2d786788771ccb5b
+https://github.com/ginkgo-project/ginkgo/commit/154aafbd57e93e4ede30b1566d2bf03e7c1b096e
+https://github.com/arrayfire/arrayfire/commit/d8d8c439c8d0a43c0f92b11fd06133be80754ab8
+https://github.com/arrayfire/arrayfire/commit/113cb18160a31d8ee04d11969bc57ff1628bda50
+https://github.com/gromacs/gromacs/commit/3e52c82b8ffa11bfa318396eb8e86cbd0f9b7446
+https://github.com/gromacs/gromacs/commit/8aa14d11ff775055794360a655fe800deea298a8
+https://github.com/lattice/quda/commit/0dd4f75396999b649c759946fe0b53e6cd12aae0
+https://github.com/arrayfire/arrayfire/commit/46c66b5658beb84f4897581b16ae235f173ad97c
+https://github.com/lattice/quda/commit/aa7049a587c6aec0d4979d1af5fb96e2c65d83c7
