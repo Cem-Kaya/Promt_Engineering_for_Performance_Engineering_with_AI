@@ -1,0 +1,39 @@
+gpu performance bug types
+
+	Sparce allocation of memory / Memory coalescing
+	Warp size/ thread size / task size
+	Kernel Launch Configuration: 
+	Loop Unrolling and Fusion
+	Register Usage
+	Memory hieracrchy
+
+Memory hieracrchy/ Reduce Global Memory Access 	
+	https://github.com/arrayfire/arrayfire/commit/d8d8c439c8d0a43c0f92b11fd06133be80754ab8
+	https://github.com/arrayfire/arrayfire/commit/113cb18160a31d8ee04d11969bc57ff1628bda50
+
+	
+    Explicit use of constant memory/ Reduce Global Memory Access 	
+        https://github.com/lattice/quda/commit/b7857af47ff2e8e8162a250a4adefba55680b1c9
+
+    use of async data coyping 
+        https://github.com/lattice/quda/commit/b7857af47ff2e8e8162a250a4adefba55680b1c9
+        https://github.com/ginkgo-project/ginkgo/commit/154aafbd57e93e4ede30b1566d2bf03e7c1b096e
+
+    Send data through pinned host memory (cuMemHostAlloc)/Memory Hierarchy/ Reduce Global Memory Access 
+        https://github.com/openmm/openmm/commit/926e7b9ac11a8614f310b59a2d786788771ccb5b
+
+    Shraed Memory Usage/ Reduce Global Memory Access 
+        https://github.com/gromacs/gromacs/commit/8aa14d11ff775055794360a655fe800deea298a8
+        https://github.com/arrayfire/arrayfire/commit/f62199b77718b4f2e2748921b78055adb0405d9e
+
+    Thread Group Tiling\ Improve locality 
+        https://github.com/lattice/quda/commit/60968d72cb4f6d1a62d8f5d959bf04a56d6c00a9
+
+    Tune Task Size\
+        https://github.com/gromacs/gromacs/commit/1789c5d65521752540a7017427e0544ab8749a04
+
+    Data Type optimization  
+        https://github.com/arrayfire/arrayfire/commit/6b19b7a45826673cb2474db266d2d024d56abdc1
+        https://github.com/openmm/openmm/commit/5b017677e1add9ac33b318c73fad21c04ff93287
+
+
