@@ -6,9 +6,7 @@
 
 const int ARRAY_SIZE = 10000;
 using namespace  std ;
-{
-    
-} // namespace  std ;
+
 
 void bubble_sort( vector<int>& arr) {
     for (  int i = 0; i < arr.size(); i++) {
