@@ -2,7 +2,7 @@ for (int i=0; i<N; i++) {
  for (int j=0; j<M; j++) { 
  "parraleize above loops with openmp"
  
- #code i got
+ //code i got
  #include <omp.h>
 
 int main() {
