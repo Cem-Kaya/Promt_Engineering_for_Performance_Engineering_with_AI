@@ -1,0 +1,43 @@
+List ml; //my_list 
+Element *e;
+#pragma omp parallel
+#pragma omp single
+{ 
+ for(e=ml->first;e;e=e->next)
+#pragma omp task
+process(e);
+} 
+"what is the problem in this cpp openmp code"
+
+List ml; // Assuming ml is a properly initialized linked list
+Element *e = ml->first; // Initialize the pointer with the first node
+
+#pragma omp parallel
+#pragma omp single
+{
+    for (; e != nullptr; e = e->next)
+    {
+        #pragma omp task
+        process(e);
+    }
+}
+
+//got a code with race condition
+
+//after mentioning race condition
+
+List ml; // Assuming ml is a properly initialized linked list
+#pragma omp parallel
+#pragma omp single
+{
+    #pragma omp task private(e)
+    {
+        Element *e;
+        for (e = ml->first; e != nullptr; e = e->next)
+        {
+            process(e);
+        }
+    }
+}
+
+//difference between firstprivate and private is that in private the variable is uninitialized
