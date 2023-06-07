@@ -1,0 +1,38 @@
+void process_in_parallel() {
+#pragma omp parallel
+#pragma omp single
+{
+int x = 1;
+...
+for (int i = 0; i < T; ++i) {
+#pragma omp task shared(x, ...) depend(out: x) // T1
+preprocess_some_data(...);
+#pragma omp task shared(x, ...) depend(in: x) // T2
+do_something_with_data(...);
+#pragma omp task shared(x, ...) depend(in: x) // T3
+do_something_independent_with_data(...);
+}
+} // end omp single, omp parallel
+}
+
+"can this code be even more parallalized"
+//what i got 
+void process_in_parallel() {
+    int x = 1;
+
+    #pragma omp parallel
+    {
+        #pragma omp single
+        {
+            #pragma omp taskloop shared(x)
+            for (int i = 0; i < T; ++i) {
+                preprocess_some_data(...);
+                #pragma omp task shared(x) depend(inout: x)
+                do_something_with_data(...);
+                #pragma omp task shared(x) depend(inout: x)
+                do_something_independent_with_data(...);
+            }
+        }
+    }
+}
+// correct
