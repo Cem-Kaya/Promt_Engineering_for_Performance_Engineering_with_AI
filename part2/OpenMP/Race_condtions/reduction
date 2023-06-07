@@ -1,0 +1,26 @@
+double ave=0.0, A[MAX]; int i; 
+#pragma omp parallel for 
+ for (i=0;i< MAX; i++) { 
+ave + = A[i];
+ } 
+ ave = ave/MAX;  
+ "what is the problem with this code cpp openmp"
+ 
+ 
+ #include <omp.h>
+#define MAX 100
+
+int main() {
+    double ave = 0.0;
+    double A[MAX];
+    int i;
+
+    #pragma omp parallel for reduction(+:ave)
+    for (i = 0; i < MAX; i++) {
+        ave += A[i];
+    }
+
+    ave = ave / MAX;
+
+    return 0;
+}
