@@ -1,0 +1,36 @@
+Int fib(int n) {
+  int x,y;
+  if (n < 2) return n;
+  #pragma omp task
+  x = fib(n - 1);
+  #pragma omp task
+  y = fib(n - 2);
+  #pragma omp taskwait
+  return x + y
+}
+
+
+"what is the problem with this cpp code written with openmp"
+
+int fib(int n) {
+  if (n < 2)
+    return n;
+  
+  int x, y;
+  
+  #pragma omp parallel
+  {
+    #pragma omp single
+    {
+      #pragma omp task private(x)
+      x = fib(n - 1);
+      
+      #pragma omp task private(y)
+      y = fib(n - 2);
+    }
+  }
+  
+  #pragma omp taskwait
+  
+  return x + y;
+}
