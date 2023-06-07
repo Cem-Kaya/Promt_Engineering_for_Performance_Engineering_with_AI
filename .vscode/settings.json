@@ -5,6 +5,7 @@
     "python.formatting.provider": "none",
     "files.associations": {
         "xiosbase": "cpp",
-        "chrono": "cpp"
+        "chrono": "cpp",
+        "iostream": "cpp"
     }
 }
