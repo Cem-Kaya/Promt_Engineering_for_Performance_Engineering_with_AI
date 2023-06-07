@@ -1,0 +1,86 @@
+#include <iostream>
+#include <vector>
+#include <algorithm>  
+#include "omp.h"
+
+using namespace std;
+
+#define NT 32
+#define N (1 << 26)
+
+int main() {
+  omp_set_num_threads(NT);
+#ifdef FT
+#pragma omp parallel 
+#endif
+  for(int i = 0; i < NT; i++) {
+    for(int j = 0; j < N; j++) {
+    
+    }
+  }
+
+  double start = omp_get_wtime();
+  double sum = 0;
+#pragma omp parallel for num_threads(NT) reduction(+:sum) schedule(static) 
+  for(int i = 0; i < NT; i++) {
+    for(int j = 0; j < N; j++) {
+    }
+  }
+  double end = omp_get_wtime();
+  cout << sum << " " << end - start << endl;
+
+  return 0;
+}  make this code numa compatible with openmp without using numa library 
+
+
+
+"make this code numa compatible without using numa library"
+
+
+
+
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include "omp.h"
+
+using namespace std;
+
+#define NT 32
+#define N (1 << 26)
+
+int main() {
+  omp_set_num_threads(NT);
+#pragma omp parallel
+  {
+    int tid = omp_get_thread_num();
+    int num_threads = omp_get_num_threads();
+    int num_cores = omp_get_num_procs();
+    int threads_per_core = num_threads / num_cores;
+    int core = tid / threads_per_core;
+
+    // Set thread affinity to a specific core
+#ifdef _OPENMP
+    omp_set_affinity_format("core:%c");
+    omp_set_affinity(omp_get_thread_num(), core);
+#endif
+
+    // Perform computations
+    for (int i = 0; i < N; i++) {
+      // Add your computation code here
+    }
+  }
+
+  double start = omp_get_wtime();
+  double sum = 0;
+#pragma omp parallel for num_threads(NT) reduction(+:sum) schedule(static)
+  for (int i = 0; i < NT; i++) {
+    for (int j = 0; j < N; j++) {
+      // Add your computation code here
+    }
+  }
+  double end = omp_get_wtime();
+  cout << sum << " " << end - start << endl;
+
+  return 0;
+}
