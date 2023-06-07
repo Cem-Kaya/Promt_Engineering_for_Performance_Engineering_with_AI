@@ -1,0 +1,18 @@
+"can this be vectorized with openmp cpp"    void sprod(float *a, float *b, int n) {
+float sum = 0.0f;
+for (int k=0; k<n; k++) 
+sum += a[k] * b[k];
+return sum;
+}
+//code i got
+
+float sprod(float *a, float *b, int n) {
+    float sum = 0.0f;
+
+    #pragma omp simd reduction(+:sum)
+    for (int k = 0; k < n; k++) {
+        sum += a[k] * b[k];
+    }
+
+    return sum;
+}
